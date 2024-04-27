@@ -12,7 +12,7 @@ local BING ={
             ["状态"] = false;
             ["用户名"] = {
                 "123fa98",
-                "cmhehebeb",
+                "jiajihuajiihuafen",
             };
         };
         ["普通白名单"] = {
