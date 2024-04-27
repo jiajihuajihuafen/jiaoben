@@ -7,53 +7,7 @@ local BING ={
             dropdown={};
         };
     };
-    ["白名单"] = {
-        ["开发者白名单"] = {
-            ["状态"] = false;
-            ["用户名"] = {
-                "123fa98",
-                "cmhehebeb",
-                "jiajihuajiihuafen",
-            };
-        };
-        ["普通白名单"] = {
-           ["状态"] = false;
-           ["用户名"] = {
-                "noobyyds7",
-                "666l104",
-                "fjfjdjdjdj375",
-                "CH_xiaochen",
-                
-                "ni_ma88",
-                "yuanjiukangnb",
-                "t66zhaoming",
-                "gshgdjwhsghsb",
-                "jjwb45",
-                "wsbbhhhhhhhhhh",
-           };
-        };
-    };
-};
-
-if BING["游戏名"] == BING["游戏名2"] then
-else
-game.Players.LocalPlayer:Kick("请到139341298获取最新脚本")
-end
-
-table.foreach(BING["白名单"]["开发者白名单"]["用户名"],function(i,name)
-    if name == BING["游戏名"] then
-        BING["白名单"]["开发者白名单"]["状态"] = true
-    end
-end)
-
-table.foreach(BING["白名单"]["普通白名单"]["用户名"],function(i,name)
-    if name == BING["游戏名"] then
-        BING["白名单"]["普通白名单"]["状态"] = true
-    end
-end)
-
-
-
+ 
 
 notify = function(...)
 local Args = {...}
@@ -7176,36 +7130,4 @@ end)
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-end
-
-
-if BING["白名单"]["开发者白名单"]["状态"] == true then
-        notify(" 忍 ","您是开发者",3)
-        wait(1)
-        notify(" 忍 ","正在启动脚本....",5)
-        wait(3)       
-        scripts()
-    else
-        if BING["限免"] == true then
-            notify(" 忍 ","现在是限免时间，无需白名单",3)
-            wait(1)
-            notify(" 忍 ","正在启动脚本....",5)
-            wait(3)       
-            scripts()
-        else
-        if R == "忍脚本交流群:139341298" then
-            notify(" 忍 ","保护函数正确",3)
-        else   
-            setclipboard("139341298")
-            game.Players.LocalPlayer:Kick("请到139341298获取最新脚本")                                           
-        end
-        if BING["白名单"]["普通白名单"]["状态"] == true then
-            notify(" 忍 ","白名单正确",3)
-            notify(" 忍 ","正在启动脚本....",5)
-            scripts()
-        else
-                setclipboard("139341298")
-            game.Players.LocalPlayer:Kick(BING["游戏名"].."请您到139341298购买白名单\n")
-        end
-    end
 end
