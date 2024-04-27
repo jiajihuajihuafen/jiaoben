@@ -1,13 +1,65 @@
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-local BING = {}
-local BING ={
+local bing = {}
+local bing ={
+    ["限免"] = false;
+    ["lp"] = game.Players.LocalPlayer;
+    ["游戏名"] = tostring(game.Players.LocalPlayer.Character);
+    ["游戏名2"] = game.Players.LocalPlayer.Name;
+    
+    
     ["拓展表"] = {
         ["传送到玩家身边"] = {
             playernamedied=nil;
             dropdown={};
         };
     };
- 
+    ["白名单"] = {
+        ["开发者白名单"] = {
+            ["状态"] = false;
+            ["用户名"] = {
+                "123fa98",
+                "cmhehebeb",
+		"jiajihuajiihuafen",
+            };
+        };
+        ["普通白名单"] = {
+           ["状态"] = false;
+           ["用户名"] = {
+                "noobyyds7",
+                "666l104",
+                "fjfjdjdjdj375",
+                "CH_xiaochen",
+                
+                "ni_ma88",
+                "yuanjiukangnb",
+                "t66zhaoming",
+                "gshgdjwhsghsb",
+                "jjwb45",
+                "wsbbhhhhhhhhhh",
+           };
+        };
+    };
+};
+
+if bing["游戏名"] == bing["游戏名2"] then
+else
+game.Players.LocalPlayer:Kick("请到139341298获取最新脚本")
+end
+
+table.foreach(bing["白名单"]["开发者白名单"]["用户名"],function(i,name)
+    if name == bing["游戏名"] then
+        bing["白名单"]["开发者白名单"]["状态"] = true
+    end
+end)
+
+table.foreach(bing["白名单"]["普通白名单"]["用户名"],function(i,name)
+    if name == bing["游戏名"] then
+        bing["白名单"]["普通白名单"]["状态"] = true
+    end
+end)
+
+
+
 
 notify = function(...)
 local Args = {...}
@@ -160,35 +212,35 @@ ab.Text="你闲置了，ROBLOX 试图踢你，但我们反映了它！"wait(2)ab
 end)
 
 function tp(p)
-   BING.lp.Character:PivotTo(p)
+   bing.lp.Character:PivotTo(p)
 end
 function shuaxinlb(zji)
-    BING["拓展表"]["传送到玩家身边"].dropdown={}
+    bing["拓展表"]["传送到玩家身边"].dropdown={}
     if zji==true then
     for p, I in next,game.Players:GetChildren() do
-    table.insert(BING["拓展表"]["传送到玩家身边"].dropdown, I.Name)
+    table.insert(bing["拓展表"]["传送到玩家身边"].dropdown, I.Name)
     end
     else
     for p, I in next, game.Players:GetChildren() do
     if I ~= lp then
-    table.insert(BING["拓展表"]["传送到玩家身边"].dropdown, I.Name)
+    table.insert(bing["拓展表"]["传送到玩家身边"].dropdown, I.Name)
     end
     end
     end
     end
     shuaxinlb(true)
 
-local dropdown = Player:Dropdown("选择玩家名称",'Dropdown',BING["拓展表"]["传送到玩家身边"].dropdown,function(v)
-    BING["拓展表"]["传送到玩家身边"].playernamedied = v
+local dropdown = Player:Dropdown("选择玩家名称",'Dropdown',bing["拓展表"]["传送到玩家身边"].dropdown,function(v)
+    bing["拓展表"]["传送到玩家身边"].playernamedied = v
 end)
 
 Player:Button("刷新列表", function()
 	shuaxinlb(true)
-	dropdown:SetOptions(BING["拓展表"]["传送到玩家身边"].dropdown)
+	dropdown:SetOptions(bing["拓展表"]["传送到玩家身边"].dropdown)
 end)
 
 Player:Button("传送到玩家旁边",function()  
-            tp(game:GetService("Players")[BING["拓展表"]["传送到玩家身边"].playernamedied].Character.HumanoidRootPart.CFrame + Vector3.new(0, 3, 0))
+            tp(game:GetService("Players")[bing["拓展表"]["传送到玩家身边"].playernamedied].Character.HumanoidRootPart.CFrame + Vector3.new(0, 3, 0))
 end)
 
 Player:Button("透视",function()  _G.FriendColor = Color3.fromRGB(0, 0, 255)
@@ -7130,4 +7182,36 @@ end)
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+end
+
+
+if bing["白名单"]["开发者白名单"]["状态"] == true then
+        notify(" 忍 ","您是开发者",3)
+        wait(1)
+        notify(" 忍 ","正在启动脚本....",5)
+        wait(3)       
+        scripts()
+    else
+        if bing["限免"] == true then
+            notify(" 忍 ","现在是限免时间，无需白名单",3)
+            wait(1)
+            notify(" 忍 ","正在启动脚本....",5)
+            wait(3)       
+            scripts()
+        else
+        if R == "忍脚本交流群:139341298" then
+            notify(" 忍 ","保护函数正确",3)
+        else   
+            setclipboard("139341298")
+            game.Players.LocalPlayer:Kick("请到139341298获取最新脚本")                                           
+        end
+        if bing["白名单"]["普通白名单"]["状态"] == true then
+            notify(" 忍 ","白名单正确",3)
+            notify(" 忍 ","正在启动脚本....",5)
+            scripts()
+        else
+                setclipboard("139341298")
+            game.Players.LocalPlayer:Kick(bing["游戏名"].."请您到139341298购买白名单\n")
+        end
+    end
 end
