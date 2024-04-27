@@ -19,6 +19,7 @@ local REN ={
             ["用户名"] = {
                 "123fa98",
                 "cmhehebeb",
+		"jiajihuajiihuafen",
             };
         };
         ["普通白名单"] = {
